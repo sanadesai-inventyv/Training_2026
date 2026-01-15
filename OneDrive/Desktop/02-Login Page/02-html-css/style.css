@@ -1,0 +1,165 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.left {
+    width: 70%;
+    background: #1e1e2f;
+    color: rgb(228, 234, 236);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2em;
+}
+
+.left img {
+    width: 14em;
+    height: 14em;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1.5em;
+}
+
+.left p {
+    margin: 0.3em 0;
+    font-size: 1.1em;
+}
+
+.right {
+    width: 30%;
+    background: #f4f4f4;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tabs {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 20em;
+    margin-bottom: 2em;
+}
+
+.tab-link {
+    text-align: center;
+    padding: 0.75em;
+    text-decoration: none;
+    color: #666;
+    font-weight: bold;
+    border-left: 0.25em solid transparent;
+}
+
+.forms {
+    width: 100%;
+    max-width: 20em;
+    position: relative;
+    min-height: 22em;
+}
+
+.login-form,
+.register-form {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+}
+
+.login-form {
+    display: flex;
+}
+
+body:has(#login:target) .login-form {
+    display: flex;
+}
+body:has(#login:target) .register-form {
+    display: none;
+}
+
+body:has(#register:target) .register-form {
+    display: flex;
+}
+body:has(#register:target) .login-form {
+    display: none;
+}
+
+body:has(#login:target) .tab-link[href="#login"],
+body:has(#register:target) .tab-link[href="#register"] {
+    color: #333;
+    border-left-color: #333;
+}
+
+.forms input {
+    margin-bottom: 1em;
+    padding: 0.75em;
+    font-size: 0.9em;
+    border: 0.0625em solid #ddd;
+    border-radius: 0.25em;
+}
+
+.forms button {
+    padding: 0.75em;
+    margin-top: 0.5em;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 0.25em;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.forgot,
+.back-link {
+    margin-top: 1em;
+    text-align: center;
+    font-size: 0.85em;
+    text-decoration: none;
+    color: #0066cc;
+}
+
+@media (max-width: 48em) {
+
+    .container {
+        flex-direction: column;
+    }
+
+    .left,
+    .right {
+        width: 100%;
+        min-height: 50vh;
+    }
+
+    .tabs {
+        flex-direction: row;
+        border-bottom: 0.125em solid #ddd;
+    }
+
+    .tab-link {
+        flex: 1;
+        border-left: none;
+        border-bottom: 0.1875em solid transparent;
+    }
+
+    body:has(#login:target) .tab-link[href="#login"],
+    body:has(#register:target) .tab-link[href="#register"] {
+        border-bottom-color: #333;
+    }
+}

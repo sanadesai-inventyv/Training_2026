@@ -46,5 +46,5 @@ fn main() {
         let user_ref = &mut user;
         user_ref.s2_user();
     
-    println!("S1 Update: {:?}\nS2 Update: {:?}", s1_user, user);
+    println!("S1 original: {:?}\nS2 Update: {:?}", s1_user, user);
 }
